@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,6 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-owpeg#-s2h94v&%n!-ke=a8!kp(4$d5&-vv&1okm(1xxj+0e0p'
+
+#openai key
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
