@@ -7,21 +7,21 @@ django.setup()
 from django.contrib.auth.models import User
 from core.models import UserProfile
 
-user, created = User.objects.get_or_create(
-    username="testadmin",
-    defaults={"password": "admin123", "email": ""}
-)
-
+user, created = User.objects.get_or_create(username="testadmin")
 if created:
     user.is_staff = True
     user.is_superuser = True
-    user.set_password("admin123") 
+    user.set_password("admin123")  
+    user.save()
+else:
+    
+    user.is_staff = True
+    user.is_superuser = True
     user.save()
 
-profile, profile_created = UserProfile.objects.get_or_create(
-    user=user,
-    defaults={"role": "ADMIN"}
-)
+profile, _ = UserProfile.objects.get_or_create(user=user)
+profile.role = "ADMIN"  
+profile.save()
 
 print("Demo admin ensured:")
 print(f"- username: {user.username}")
