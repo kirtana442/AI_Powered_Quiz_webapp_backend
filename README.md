@@ -126,7 +126,7 @@ Authorization: Bearer <access_token>
 | POST | `/api/quizzes/create/` | Create quiz (Admin) |
 | GET | `/api/quizzes/` | List quizzes |
 | GET | `/api/quizzes/{id}/` | Get quiz details |
-
+| POST | `/api/quizzes/{id}/generate` | AI-generated questions for created quiz | 
 ### Attempt
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
