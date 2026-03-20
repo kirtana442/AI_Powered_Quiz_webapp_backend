@@ -1,6 +1,7 @@
 Django==6.0.*
 psycopg[binary]==3.*
 gunicorn==21.*
+whitenoise
 djangorestframework==3.*
 drf-spectacular==0.29.*
 djangorestframework-simplejwt==5.*
