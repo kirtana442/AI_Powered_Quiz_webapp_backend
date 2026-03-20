@@ -27,8 +27,8 @@ Backend for a quiz system built using:
 
 ### Run Project Locally
 ```bash
-git clone <repo-url>
-cd django-docker-app
+git clone https://github.com/kirtana442/AI_Powered_Quiz_webapp_backend.git
+cd AI_Powered_Quiz_webapp_backend
 ```
 
 ### Create .env
@@ -154,7 +154,6 @@ total_score = sum(
 ```
 
 ---
-
 ## Docker Services
 * **web:** Django application running on port `8000`.
 * **db:** PostgreSQL database instance.
