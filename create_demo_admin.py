@@ -1,4 +1,3 @@
-# create_demo_admin.py
 import os
 import django
 
@@ -6,26 +5,24 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 django.setup()
 
 from django.contrib.auth.models import User
-from core.models import UserProfile 
+from core.models import UserProfile
 
+user, created = User.objects.get_or_create(
+    username="testadmin",
+    defaults={"password": "admin123", "email": ""}
+)
 
-if not User.objects.filter(username="testadmin").exists():
-    
-    user = User.objects.create_user(
-        username="testadmin",
-        password="admin123",
-        email=""
-    )
-    
-    profile = UserProfile.objects.create(
-        user=user,
-        role="ADMIN"
-    )
-   
+if created:
     user.is_staff = True
     user.is_superuser = True
+    user.set_password("admin123") 
     user.save()
 
-    print("Demo admin created: username='testadmin', password='admin123'")
-else:
-    print("Demo admin already exists")
+profile, profile_created = UserProfile.objects.get_or_create(
+    user=user,
+    defaults={"role": "ADMIN"}
+)
+
+print("Demo admin ensured:")
+print(f"- username: {user.username}")
+print(f"- role: {profile.role}")
