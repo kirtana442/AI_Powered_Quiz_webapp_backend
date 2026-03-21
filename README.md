@@ -30,6 +30,18 @@ Relationships are enforced via foreign keys with unique constraints (e.g., one r
 
 ---
 
+## Test Admin Credentials
+
+For testing and demonstration purposes on the deployed system, a pre-created admin account is available.
+
+* **Username:** `testadmin`
+* **Password:** `admin123`
+* **Role:** `ADMIN`
+
+**Usage:** Log in via `/api/auth/login/` to receive an access token. Use this token in the Authorization header to access admin-restricted endpoints, such as quiz creation and system-wide analytics.
+
+---
+
 ## API Endpoints
 
 ### Authentication
